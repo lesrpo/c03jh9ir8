@@ -1,0 +1,38 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			<h1>Actors</h1>
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<th>Foto</th>
+						<th>Nombre</th>
+						<th>Bio</th>
+						<th>Fecha de Nacimiento</th>
+						<th>Lugar de Nacimiento</th>
+						<th>Fecha de Fallecimiento</th>
+						<th>Lugar de Fallecimiento</th>
+					</thead>
+					<tbody>
+						<% @actors.each do |actor|%>
+						<tr>
+							<td><img src="<%= actor.image_url%>" /></td>
+							<td><%= actor.name%></td>
+							<td><%= actor.bio%></td>
+							<td><%= actor.birth_date%></td>
+							<td><%= actor.birth_place%></td>
+							<% if actor.alive %>
+								<td>-</td>
+								<td>-</td>	
+							<%else%>
+								<td><%= actor.death_date%></td>
+								<td><%= actor.death_place%></td>
+							<%end%>
+						</tr>
+						<% end%>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
